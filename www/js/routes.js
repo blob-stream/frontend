@@ -32,6 +32,12 @@ angular.module('app.routes', [])
     controller: 'pickANameCtrl'
   })
 
+  .state('addABlob', {
+    url: '/page6',
+    templateUrl: 'templates/addABlob.html',
+    controller: 'addABlobCtrl'
+  })
+
 $urlRouterProvider.otherwise('/start')
 
   

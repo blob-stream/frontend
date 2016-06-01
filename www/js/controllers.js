@@ -7,4 +7,8 @@ angular.module('app.controllers', [])
 .controller('pickANameCtrl', function($scope) {
 
 })
+   
+.controller('addABlobCtrl', function($scope) {
+
+})
  
