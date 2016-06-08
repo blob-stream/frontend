@@ -17,17 +17,21 @@ angular.module('app.routes', [])
   .state('menu.blobStream', {
     url: '/stream',
     views: {
-      'side-menu21': {
+      'menu': {
         templateUrl: 'templates/blobStream.html',
         controller: 'blobStreamCtrl'
       }
     }
   })
 
-  .state('addABlob', {
+  .state('menu.addABlob', {
     url: '/addABlob',
-    templateUrl: 'templates/addABlob.html',
-    controller: 'addABlobCtrl'
+    views: {
+      'menu': {
+        templateUrl: 'templates/addABlob.html',
+        controller: 'addABlobCtrl'
+      }
+    }
   })
 
   .state('menu', {
