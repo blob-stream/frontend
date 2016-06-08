@@ -8,38 +8,39 @@ angular.module('app.routes', [])
   // Each state's controller can be found in controllers.js
   $stateProvider
     
-  
+  .state('pickAName', {
+    url: '/pickAName',
+    templateUrl: 'templates/pickAName.html',
+    controller: 'pickANameCtrl'
+  })
 
-      .state('tabsController.blobStream', {
+  .state('menu.blobStream', {
     url: '/stream',
     views: {
-      'tab1': {
+      'menu': {
         templateUrl: 'templates/blobStream.html',
         controller: 'blobStreamCtrl'
       }
     }
   })
 
-  .state('tabsController', {
-    url: '/page1',
-    templateUrl: 'templates/tabsController.html',
+  .state('menu.addABlob', {
+    url: '/addABlob',
+    views: {
+      'menu': {
+        templateUrl: 'templates/addABlob.html',
+        controller: 'addABlobCtrl'
+      }
+    }
+  })
+
+  .state('menu', {
+    url: '/menu',
+    templateUrl: 'templates/menu.html',
     abstract:true
   })
 
-  .state('pickAName', {
-    url: '/start',
-    templateUrl: 'templates/pickAName.html',
-    controller: 'pickANameCtrl'
-  })
+$urlRouterProvider.otherwise('/pickAName')
 
-  .state('addABlob', {
-    url: '/page6',
-    templateUrl: 'templates/addABlob.html',
-    controller: 'addABlobCtrl'
-  })
-
-$urlRouterProvider.otherwise('/start')
-
-  
 
 });
