@@ -4,15 +4,15 @@ angular.module('app.controllers', [])
 
 })
    
-.controller('blobStreamCtrl', function($scope) {
+/*.controller('blobStreamCtrl', function($scope) {
 
-})
+})*/
 
 .controller('addABlobCtrl', function($scope) {
 
 })
     
-.controller("FileController", function($scope, $ionicLoading){
+.controller("blobStreamCtrl", function($scope, $ionicLoading){
 $scope.download = function() {
 	    $ionicLoading.show({
 	      template: 'Loading...'

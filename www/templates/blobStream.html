@@ -1,5 +1,5 @@
 <ion-view title="Blob Stream" hide-back-button="true" id="page2" class=" ">
-    <ion-content padding="true" class="has-header" ng-controller="FileController">
+    <ion-content padding="true" class="has-header">
         <div class="item item-body " id="blobStream-list-item-container1">
             <p id="blobStream-markdown1" style="margin-top:0px;color:#000000;" class=" ">Tom @ Some Group</p>
             <div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
@@ -7,6 +7,7 @@
                     <img ng-src="{{imgFile}}">
                 </i>
             </div>
+
             <button id="blobStream-button2" class=" button button-positive  button-block icon ion-android-star "> Cool stuff</button>
             <button class="button" ng-click="download()">Download</button>
             <button class="button" ng-click="load()">Load</button>
