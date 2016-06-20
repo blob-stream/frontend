@@ -1,13 +1,13 @@
 <ion-view title="Blob Stream" hide-back-button="true" id="page2" class=" ">
     <ion-content padding="true" class="has-header">
-        <div class="item item-body" id="blobs-container" ng-repeat="dummy in dummies">
+        <div class="item item-body" id="blobs-container" ng-repeat="dummy in dummies | orderBy:'-position'">
             <p style="margin-top:0px;color:#000000; text-align:right;">{{dummy.creator}} @ Blob Stream</p>
             <h2 style="margin-top:0px; text-align=left;" ng-if="dummy.heading">{{dummy.heading}}</h2>
             <p ng-if="dummy.description">{{dummy.description}}</p>
             <div class="item item-image" text-align: center;">
                 <img ng-if="dummy.image" class="fullscreen-image" ng-src="{{dummy.image}}">
             </div>
-            <button id="blobStream-button2" class=" button button-calm  button-block icon ion-android-star "> Cool stuff</button>
+            <button id="blobStream-button2" class=" button button-calm  button-block icon ion-android-star" ng-click="coolIt"> Cool stuff</button>
         </div>
         <!--<button class="button" ng-click="download()">Download</button>
         <button class="button" ng-click="load()">Load</button>-->
