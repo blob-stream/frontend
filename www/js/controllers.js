@@ -14,17 +14,22 @@ angular.module('app.controllers', [])
 		{
 			heading: "Feeling good",
 			description: "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
-			creator: "Tom"
+			image: "src/test.jpg",
+			creator: "Doreen"
 		},
 		{
 			heading: "Sleepy right now",
 			description: "It is really cool when your alarm clock wears footy pyjamas.",
-			image: "ExampleProject/test.png",
 			creator: "Dary"
 		},
 		{
 			heading: "Grass is always greener on the other side.",
 			creator: "Dary"
+		},
+		{
+			heading: "Yaay, marriage is coming soon.",
+			creator: "Meli",
+			image: "src/meli.jpg"
 		}
 	];
 
