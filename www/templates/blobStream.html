@@ -1,17 +1,18 @@
 <ion-view title="Blob Stream" hide-back-button="true" id="page2" class=" ">
     <ion-content padding="true" class="has-header">
-        <div class="item item-body " id="blobStream-list-item-container1">
-            <p id="blobStream-markdown1" style="margin-top:0px;color:#000000;" class=" ">Tom @ Some Group</p>
+        <div class="item item-body " id="blobs-container" ng-repeat="dummy in dummies">
+            <p style="margin-top:0px;color:#000000;">{{dummy.creator}} @ Blob Stream</p>
+            <h2 ng-if="dummy.heading">{{dummy.heading}}</h2>
+            <p ng-if="dummy.description">{{dummy.description}}</p>
             <div style="margin: 0px; line-height: 250px; background-color: rgb(232, 235, 239); text-align: center;">
-                <i class="icon ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;">
-                    <img ng-src="{{imgFile}}">
+                <i ng-if="dummy.image" class="ion-image" style="font-size: 64px; color: rgb(136, 136, 136); vertical-align: middle;">
+                    <img ng-src="{{dummy.image}}">
                 </i>
             </div>
-
             <button id="blobStream-button2" class=" button button-positive  button-block icon ion-android-star "> Cool stuff</button>
-            <button class="button" ng-click="download()">Download</button>
-            <button class="button" ng-click="load()">Load</button>
         </div>
+        <button class="button" ng-click="download()">Download</button>
+        <button class="button" ng-click="load()">Load</button>
     </ion-content>
     <a href="#/menu/addABlob">
         <ion-footer-bar class="bar">

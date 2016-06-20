@@ -4,16 +4,31 @@ angular.module('app.controllers', [])
 
 })
    
-/*.controller('blobStreamCtrl', function($scope) {
-
-})*/
 
 .controller('addABlobCtrl', function($scope) {
 
 })
     
 .controller("blobStreamCtrl", function($scope, $ionicLoading){
-$scope.download = function() {
+	$scope.dummies = [
+		{
+			heading: "Feeling good",
+			description: "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
+			creator: "Tom"
+		},
+		{
+			heading: "Sleepy right now",
+			description: "It is really cool when your alarm clock wears footy pyjamas.",
+			image: "ExampleProject/test.png",
+			creator: "Dary"
+		},
+		{
+			heading: "Grass is always greener on the other side.",
+			creator: "Dary"
+		}
+	];
+
+	$scope.download = function() {
 	    $ionicLoading.show({
 	      template: 'Loading...'
 	    });
