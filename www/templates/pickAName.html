@@ -1,21 +1,8 @@
-<!--ion-view title="Pick a name" id="page1" class=" ">
-    <ion-content padding="true" class="has-header">
-        <form id="pickAName-form1" class="list ">
-            <label class="item item-input">
-                <input placeholder="Username"></input>
-            </label>
-        </form>
-        
-    </ion-content>
-</ion-view-->
-
-
-
 <ion-view view-title="Pick a name">
   <ion-content class="padding">
       <div class="list list-inset">
           <label class="item item-input">
-              <input type="text" placeholder="Username" ng-model="data.username">
+              <input type="text" placeholder="Name" ng-model="data.name">
           </label>
       </div>
       <a ui-sref="menu.blobStream" class=" button button-calm  button-block ">Start</a>
