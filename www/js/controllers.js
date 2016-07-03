@@ -3,13 +3,12 @@ angular.module('app.controllers', [])
 .controller('pickANameCtrl', function($scope) {
 
 })
-   
 
 .controller('addABlobCtrl', function($scope) {
 	$scope.name = {};
 })
     
-.controller("blobStreamCtrl", function($scope, $ionicLoading){
+.controller('blobStreamCtrl', function($scope, $ionicLoading){
 	$scope.dummies = [
 		{
 			heading: "Feeling good",
@@ -39,7 +38,6 @@ angular.module('app.controllers', [])
 	];
 
 	$scope.coolIt = function($scope, $item){
-
 	}
 
 	$scope.download = function() {
