@@ -8,8 +8,8 @@ angular.module('app.controllers', [])
 	$scope.name = {};
 })
     
-.controller('blobStreamCtrl', function($scope, $ionicLoading){
-	$scope.dummies = [
+.controller('blobStreamCtrl', function($scope, $ionicLoading, $http){
+	/*$scope.dummies = [
 		{
 			heading: "Feeling good",
 			description: "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
@@ -35,7 +35,34 @@ angular.module('app.controllers', [])
 			position: 1
 
 		}
-	];
+	];*/
+	$scope.dummies = [];
+
+
+
+var test = $scope.dummies;
+
+
+	/*$http.json('/js/dummy.json')
+		.success(function(data){
+			//test.push(data);
+			console.log("blaa");
+		})
+		.error(function(data){
+			console.log("error");
+		});*/
+
+
+
+	$http.get('/js/dummy.json').success(function(data){
+		console.log("in success:");
+		console.log(data);
+		test.push(data);
+	})
+	.error(function(){console.log("error");});
+
+
+
 
 	$scope.coolIt = function($scope, $item){
 	}
