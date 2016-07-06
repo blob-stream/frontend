@@ -9,7 +9,7 @@ angular.module('app.controllers', [])
 })
     
 .controller('blobStreamCtrl', function($scope, $ionicLoading, $http){
-	/*$scope.dummies = [
+	/*this.dummies = [
 		{
 			heading: "Feeling good",
 			description: "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
@@ -36,12 +36,9 @@ angular.module('app.controllers', [])
 
 		}
 	];*/
-	$scope.dummies = [];
 
-
-
-var test = $scope.dummies;
-
+	this.dummies= [];
+	var httpData = this.dummies;
 
 	/*$http.json('/js/dummy.json')
 		.success(function(data){
@@ -57,7 +54,7 @@ var test = $scope.dummies;
 	$http.get('/js/dummy.json').success(function(data){
 		console.log("in success:");
 		console.log(data);
-		test.push(data);
+		httpData.push(data);
 	})
 	.error(function(){console.log("error");});
 

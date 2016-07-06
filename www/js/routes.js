@@ -11,7 +11,8 @@ angular.module('app.routes', [])
   .state('pickAName', {
     url: '/pickAName',
     templateUrl: 'templates/pickAName.html',
-    controller: 'pickANameCtrl'
+    controller: 'pickANameCtrl',
+    controllerAs: 'nameCtrl'
   })
 
   .state('menu.blobStream', {
@@ -19,7 +20,8 @@ angular.module('app.routes', [])
     views: {
       'menu': {
         templateUrl: 'templates/blobStream.html',
-        controller: 'blobStreamCtrl'
+        controller: 'blobStreamCtrl',
+        controllerAs: 'streamCtrl'
       }
     }
   })
@@ -29,7 +31,8 @@ angular.module('app.routes', [])
     views: {
       'menu': {
         templateUrl: 'templates/addABlob.html',
-        controller: 'addABlobCtrl'
+        controller: 'addABlobCtrl',
+        controllerAs: 'addCtrl'
       }
     }
   })

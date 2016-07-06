@@ -1,43 +1,20 @@
-angular.module('app.services', [])
+angular.module('app.services', [ ])
 
 .factory('BlankFactory', [function(){
 
 }])
 
-.service('BlankService', [function(){
+/*.service('BlobService', ['$http', function($http){
+	var stream = this;
+	stream.blobs = [ ];
 
-}])
+	$http.get('/dummy.json')
+		.success(function(data){
+			stream.blobs = data;
+		})
+		.error(function)(data){
+			console.log("Error loading blobs from file. Got following: " + data);
+		};
+}])*/
 
-.service('BlobService', [function(){
-	$scope.dummies = [
-		{
-			heading: "Feeling good",
-			description: "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
-			image: "src/test.jpg",
-			creator: "Doreen",
-			position: 4
-		},
-		{
-			heading: "Sleepy right now",
-			description: "It is really cool when your alarm clock wears footy pyjamas.",
-			creator: "Dary",
-			position: 3
-		},
-		{
-			heading: "Grass is always greener on the other side.",
-			creator: "Dary",
-			position: 2
-		},
-		{
-			heading: "Yaay, marriage is coming soon.",
-			creator: "Meli",
-			image: "src/meli.jpg",
-			position: 1
-
-		}
-	];
-	function addABlob(){
-
-	}
-}]);
 
