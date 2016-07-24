@@ -9,57 +9,15 @@ angular.module('app.controllers', [])
 })
     
 .controller('blobStreamCtrl', function($scope, $ionicLoading, $http){
-	/*this.dummies = [
-		{
-			heading: "Feeling good",
-			description: "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
-			image: "src/test.jpg",
-			creator: "Doreen",
-			position: 4
-		},
-		{
-			heading: "Sleepy right now",
-			description: "It is really cool when your alarm clock wears footy pyjamas.",
-			creator: "Dary",
-			position: 3
-		},
-		{
-			heading: "Grass is always greener on the other side.",
-			creator: "Dary",
-			position: 2
-		},
-		{
-			heading: "Yaay, marriage is coming soon.",
-			creator: "Meli",
-			image: "src/meli.jpg",
-			position: 1
-
-		}
-	];*/
-
 	this.dummies= [];
 	var httpData = this.dummies;
 
-	/*$http.json('/js/dummy.json')
-		.success(function(data){
-			//test.push(data);
-			console.log("blaa");
-		})
-		.error(function(data){
-			console.log("error");
-		});*/
-
-
-
 	$http.get('/js/dummy.json').success(function(data){
-		console.log("in success:");
-		console.log(data);
-		httpData.push(data);
+		data.entries.forEach(function (elem, index) {
+			httpData.push(elem);
+		})
 	})
 	.error(function(){console.log("error");});
-
-
-
 
 	$scope.coolIt = function($scope, $item){
 	}
