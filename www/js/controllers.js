@@ -1,11 +1,17 @@
 angular.module('app.controllers', [])
   
-.controller('pickANameCtrl', function($scope) {
+.controller('pickANameCtrl', function($scope, UserService) {
+	this.userName = "";
 
+	this.setUserName = function(){
+		UserService.setUserName(this.userName);
+	};
 })
 
-.controller('addABlobCtrl', function($scope) {
-	$scope.name = {};
+.controller('addABlobCtrl', function($scope, UserService) {
+	this.userName = UserService.getUserName();
+
+
 })
     
 .controller('blobStreamCtrl', function($scope, $ionicLoading, $http){
@@ -17,7 +23,7 @@ angular.module('app.controllers', [])
 			httpData.push(elem);
 		})
 	})
-	.error(function(){console.log("error");});
+	.error(function(){console.log("Error loading json file");});
 
 	$scope.coolIt = function($scope, $item){
 	}

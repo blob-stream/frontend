@@ -1,11 +1,12 @@
 <ion-view view-title="Pick a name">
   <ion-content class="padding">
+      <form>
       <div class="list list-inset">
           <label class="item item-input">
-              <input type="text" placeholder="Name" ng-model="data.name">
+              <input type="text" placeholder="Name" ng-model="nameCtrl.userName">
           </label>
       </div>
-      <a ui-sref="menu.blobStream" class=" button button-calm  button-block ">Start</a>
-      <!--<button class="button button-block button-calm" ng-click="login()">Start</button>-->
+      <a ui-sref="menu.blobStream" class=" button button-calm  button-block " ng-click="nameCtrl.setUserName()">Start</a>
+      </form>
   </ion-content>
 </ion-view>
