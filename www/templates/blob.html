@@ -1,4 +1,4 @@
-<div class="item item-body" id="blobs-container" ng-repeat="dummy in streamCtrl.dummies | orderBy:'-position'">
+<div class="item item-body" id="blobs-container" ng-repeat="dummy in streamCtrl.dummies | orderBy: ['-voting', '-position'] ">
     <p style="margin-top:0px;color:#000000; text-align:right;">{{dummy.creator}} @ Blob Stream</p>
     <h2 style="margin-top:0px; text-align=left;" ng-if="dummy.heading">{{dummy.heading}}</h2>
     <p ng-if="dummy.description">{{dummy.description}}</p>
