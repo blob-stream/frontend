@@ -5,24 +5,28 @@
 			"description": "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
 			"image": "src/test.jpg",
 			"creator": "Doreen",
-			"position": 4
+			"position": 4,
+			"voting": 1
 		},
 		{
 			"heading": "Sleepy right now",
 			"description": "It is really cool when your alarm clock wears footy pyjamas.",
 			"creator": "Dary",
-			"position": 3
+			"position": 3,
+			"voting": 1
 		},
 		{
 			"heading": "Grass is always greener on the other side.",
 			"creator": "Dary",
-			"position": 2
+			"position": 2,
+			"voting": 2
 		},
 		{
 			"heading": "Yaay, marriage is coming soon.",
 			"creator": "Meli",
 			"image": "src/meli.jpg",
-			"position": 1
+			"position": 1,
+			"voting": 2
 
 		}
 	]
