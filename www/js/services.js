@@ -17,4 +17,15 @@ angular.module('app.services', [ ])
 		};
 }])*/
 
+.service('UserService', [function(){
+	var userName = '';
 
+	return{
+		getUserName: function(){
+			return userName;
+		},
+		setUserName: function(name){
+			userName = name;
+		}
+	};
+}])
