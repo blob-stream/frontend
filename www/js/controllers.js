@@ -10,25 +10,21 @@ angular.module('app.controllers', [])
 
 .controller('addABlobCtrl', function($scope, UserService) {
 	this.userName = UserService.getUserName();
+	/*this.newblob = {};
+	this.newblob.creator = UserService.getUserName();*/
 
-
+	this.addNewBlob = function(newblob){
+		
+	}
 })
     
-.controller('blobStreamCtrl', function($scope, $ionicLoading, $http){
-	this.dummies= [];
-	var httpData = this.dummies;
-
-	$http.get('/js/dummy.json').success(function(data){
-		data.entries.forEach(function (elem, index) {
-			httpData.push(elem);
-		})
-	})
-	.error(function(){console.log("Error loading json file");});
+.controller('blobStreamCtrl', function($scope, $ionicLoading, $http, BlobService){
+	this.dummies = BlobService.getBlobs();
 
 	$scope.coolIt = function($scope, $item){
 	}
 
-	$scope.download = function() {
+	/*$scope.download = function() {
 	    $ionicLoading.show({
 	      template: 'Loading...'
 	    });
@@ -110,5 +106,5 @@ angular.module('app.controllers', [])
 	        $ionicLoading.hide();
 	        console.log("Error requesting filesystem");
 	    });
-	}
+	}*/
 });
