@@ -4,8 +4,9 @@ angular.module('app.services', [ ])
 
 }])
 
-.service('BlobService', ['$http', function($http){
-	return{
+.factory('BlobService', ['$http', function($http){
+	var service = {
+		blobs : [],
 		getBlobs: function(){
 			this.dummies= [];
 			var httpData = this.dummies;
@@ -14,16 +15,18 @@ angular.module('app.services', [ ])
 				data.entries.forEach(function (elem, index) {
 					httpData.push(elem);
 				})
+				angular.copy(httpData, service.blobs);
 			})
 			.error(function(data){
 				console.log("Error loading blobs from file. Got following: " + data);
 			});
 			return this.dummies;
 		},
-		addnewBlob: function(newBlob){
+		addNewBlob: function(newBlob){
 
 		}
 	};
+	return service;
 }])
 
 .service('UserService', [function(){
