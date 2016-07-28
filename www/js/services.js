@@ -62,7 +62,11 @@ angular.module('app.services', [ ])
 			return userName;
 		},
 		setUserName: function(name){
-			userName = name;
+			if (name != "") {
+				userName = name;
+			} else {
+				userName = "Anonymous";
+			}
 		}
 	};
 }])
