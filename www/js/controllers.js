@@ -27,7 +27,7 @@ angular.module('app.controllers', [])
 	init();
 
 	this.blobs = BlobService.blobs;
-	
+
 	$scope.coolIt = function($scope, $item){
 
 	}
