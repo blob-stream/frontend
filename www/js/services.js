@@ -31,7 +31,9 @@ angular.module('app.services', [ ])
 						}).error(function(data){
 							console.log("Error loading blob " + httpServerData[i].blobID + " from server. Got following: " + data);
 						});
-					}
+					} //else {
+				//		service.addVoteToApp(httpServerData[i].blobID);
+				//	}
 				}
 			}).error(function(data){
 				console.log("Error loading blob list from server. Got following: " + data);
@@ -60,7 +62,8 @@ angular.module('app.services', [ ])
 				console.log("Error adding blob." + data);
 			});*/
 		},
-		addVote: function(blob){
+		addVoteToServer: function(blob){
+
 /*			$http({
 				method: 'POST',
 				url: service.serverUrl + '/blob/vote/' + blob.blobID,
@@ -70,10 +73,15 @@ angular.module('app.services', [ ])
 					"blobID": blob.blobID //do we really need this?
 				}
 			}).success(function(data){
-				//upvote
+				//addVoteToApp(blob.blobID);
 			}).error(function(data){
 				console.log("Error voting up." + data);
 			});*/
+		},
+		addVoteToApp: function(blobID){
+/*			if(blob.myProp){
+			    alert("yes, i have that property");
+			};*/
 		}
 	};
 	return service;
