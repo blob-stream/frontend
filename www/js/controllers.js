@@ -29,6 +29,6 @@ angular.module('app.controllers', [])
 	this.blobs = BlobService.blobs;
 
 	this.addVote = function(blob){
-		BlobService.addVote(blob.blobID);
+		BlobService.addVoteToServer(blob.blobID);
 	}
 });
