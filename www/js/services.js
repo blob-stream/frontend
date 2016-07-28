@@ -8,30 +8,43 @@ angular.module('app.services', [ ])
 	var service = {
 		blobs : [],
 		serverUrl: "https://mwa.perguth.de",
+		serverData: [],
 		getBlobs: function(){
-			this.dummies= [];
-			var httpData = this.dummies;
+			this.blobs = [];
+			var httpData = this.blobs;
+			var httpServerData = this.serverData;
 
-			/*$http({
+/*			$http({
 				method: 'GET',
-				url: '/events/recent/10',
-				data: { user: userService.getUser()._id }
+				url: service.serverUrl + '/events/recent/10',
 			}).success(function(data){
-				angular.copy(data.groups, service.groups);
+				httpServerData = data;
+
+				//httpHttpServerData = httpServerData;
+				for (var i = 0; i < httpServerData.length; i++) {
+					if(httpServerData[i].verb = "newBlob"){
+						$http({
+							method: 'GET',
+							url: service.serverUrl + '/blob/get/' + httpServerData[i].blobID,
+						}).success(function(data){
+							console.log(data);
+						}).error(function(data){
+							console.log("Error loading blob " + httpServerData[i].blobID + " from server. Got following: " + data);
+						});
+					}
+				}
 			}).error(function(data){
-				console.log("error get group");
+				console.log("Error loading blob list from server. Got following: " + data);
 			});*/
 
 			$http.get('/js/dummy.json').success(function(data){
 				data.entries.forEach(function (elem, index) {
 					httpData.push(elem);
 				})
-				angular.copy(httpData, service.blobs);
 			})
 			.error(function(data){
 				console.log("Error loading blobs from file. Got following: " + data);
 			});
-			return this.dummies;
 		},
 		addNewBlob: function(newBlob){
 			service.blobs.push(newBlob);
@@ -39,91 +52,6 @@ angular.module('app.services', [ ])
 		}
 	};
 	return service;
-	-       /*$scope.download = function() {
--           $ionicLoading.show({
--             template: 'Loading...'
--           });
--           window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
--               fs.root.getDirectory(
--                   "ExampleProject",
--                   {
--                       create: true
--                   },
--                   function(dirEntry) {
--                       dirEntry.getFile(
--                           "test.png", 
--                           {
--                               create: true, 
--                               exclusive: false
--                           }, 
--                           function gotFileEntry(fe) {
--                               var p = fe.toURL();
--                               fe.remove();
--                               ft = new FileTransfer();
--                               ft.download(
--                                   encodeURI("http://ionicframework.com/img/ionic-logo-blog.png"),
--                                   p,
--                                   function(entry) {
--                                       $ionicLoading.hide();
--                                       $scope.imgFile = entry.toURL();
--                                   },
--                                   function(error) {
--                                       $ionicLoading.hide();
--                                       alert("Download Error Source -> " + error.source);
--                                   },
--                                   false,
--                                   null
--                               );
--                           }, 
--                           function() {
--                               $ionicLoading.hide();
--                               console.log("Get file failed");
--                           }
--                       );
--                   }
--               );
--           },
--           function() {
--               $ionicLoading.hide();
--               console.log("Request for filesystem failed");
--           });*/
-	/*-       $scope.load = function() {
-}
--           $ionicLoading.show({
--             template: 'Loading...'
--           });
--           window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs) {
--               fs.root.getDirectory(
--                   "ExampleProject",
--                   {
--                       create: false
--                   },
--                   function(dirEntry) {
--                       dirEntry.getFile(
--                           "test.png", 
--                           {
--                               create: false, 
--                               exclusive: false
--                           }, 
--                           function gotFileEntry(fe) {
--                               $ionicLoading.hide();
--                               $scope.imgFile = fe.toURL();
--                           }, 
--                           function(error) {
--                               $ionicLoading.hide();
--                               console.log("Error getting file");
--                           }
--                       );
--                   }
--               );
--           },
--           function() {
--               $ionicLoading.hide();
--               console.log("Error requesting filesystem");
--           });
--       }*/
-
-
 }])
 
 .service('UserService', [function(){
