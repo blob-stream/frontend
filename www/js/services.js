@@ -46,11 +46,11 @@ angular.module('app.services', [ ])
 				console.log("Error loading blobs from file. Got following: " + data);
 			});
 		},
-/*		addNewBlob: function(newBlob){
+		addNewBlob: function(newBlob){
 			service.blobs.push(newBlob);
 			angular.copy(service.blobs);
 
-			$http({
+/*			$http({
 				method: 'POST',
 				url: service.serverUrl + '/blob/create',
 				data: { newBlob }
@@ -58,8 +58,23 @@ angular.module('app.services', [ ])
 				angular.copy(data.newBlob, service.blob)
 			}).error(function(data){
 				console.log("Error adding blob." + data);
-			});
-		}*/
+			});*/
+		},
+		addVote: function(blob){
+/*			$http({
+				method: 'POST',
+				url: service.serverUrl + '/blob/vote/' + blob.blobID,
+				data: { 
+					"verb": "addVote", // auch noch "removeVote"
+					"voter": blob.creater,
+					"blobID": blob.blobID //do we really need this?
+				}
+			}).success(function(data){
+				//upvote
+			}).error(function(data){
+				console.log("Error voting up." + data);
+			});*/
+		}
 	};
 	return service;
 }])
