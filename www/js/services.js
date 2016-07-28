@@ -16,7 +16,7 @@ angular.module('app.services', [ ])
 
 /*			$http({
 				method: 'GET',
-				url: service.serverUrl + '/events/recent/10',
+				url: service.serverUrl + '/events/recent/10'
 			}).success(function(data){
 				httpServerData = data;
 
@@ -25,7 +25,7 @@ angular.module('app.services', [ ])
 					if(httpServerData[i].verb = "newBlob"){
 						$http({
 							method: 'GET',
-							url: service.serverUrl + '/blob/get/' + httpServerData[i].blobID,
+							url: service.serverUrl + '/blob/get/' + httpServerData[i].blobID
 						}).success(function(data){
 							console.log(data);
 						}).error(function(data){
@@ -46,10 +46,20 @@ angular.module('app.services', [ ])
 				console.log("Error loading blobs from file. Got following: " + data);
 			});
 		},
-		addNewBlob: function(newBlob){
+/*		addNewBlob: function(newBlob){
 			service.blobs.push(newBlob);
-			angular.copy(service.blobs);;
-		}
+			angular.copy(service.blobs);
+
+			$http({
+				method: 'POST',
+				url: service.serverUrl + '/blob/create',
+				data: { newBlob }
+			}).success(function(data){
+				angular.copy(data.newBlob, service.blob)
+			}).error(function(data){
+				console.log("Error adding blob." + data);
+			});
+		}*/
 	};
 	return service;
 }])
