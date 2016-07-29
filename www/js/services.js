@@ -14,20 +14,23 @@ angular.module('app.services', [ ])
 			var httpData = this.blobs;
 			var httpServerData = this.serverData;
 
-/*			$http({
+			$http({
 				method: 'GET',
 				url: service.serverUrl + '/events/recent/10'
 			}).success(function(data){
 				httpServerData = data;
+				console.log(httpServerData);
 
-				//httpHttpServerData = httpServerData;
+				//httpHttpServerData = httpServerData; 
 				for (var i = 0; i < httpServerData.length; i++) {
 					if(httpServerData[i].verb = "newBlob"){
 						$http({
 							method: 'GET',
 							url: service.serverUrl + '/blob/get/' + httpServerData[i].blobID
 						}).success(function(data){
+							data.dataURL = "data:image/png;base64," + data.dataURL;
 							console.log(data);
+							httpData.push(data);
 						}).error(function(data){
 							console.log("Error loading blob " + httpServerData[i].blobID + " from server. Got following: " + data);
 						});
@@ -37,7 +40,7 @@ angular.module('app.services', [ ])
 				}
 			}).error(function(data){
 				console.log("Error loading blob list from server. Got following: " + data);
-			});*/
+			});
 
 			$http.get('/js/dummy.json').success(function(data){
 				data.entries.forEach(function (elem, index) {
