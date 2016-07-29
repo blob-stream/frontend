@@ -11,18 +11,7 @@
 			"description": "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
 			"dataURL": "src/test.jpg",
 			"creator": "Doreen",
-			"voting": 2
-		},
-		{
-			"heading": "Grass is always greener on the other side.",
-			"creator": "Dary",
-			"voting": 0
-		},
-		{
-			"heading": "Yaay, marriage is coming soon.",
-			"creator": "Meli",
-			"dataURL": "src/meli.jpg",
-			"voting": 0
+			"voting": 1
 		}
 	]
 }

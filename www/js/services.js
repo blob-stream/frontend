@@ -28,6 +28,7 @@ angular.module('app.services', [ ])
 							url: service.serverUrl + '/blob/get/' + httpServerData[i].blobID
 						}).success(function(data){
 							data.voting = 0;
+
 							httpData.push(data);
 						}).error(function(data){
 							console.log("Error loading blob " + httpServerData[i].blobID + " from server. Got following: " + data);
