@@ -27,7 +27,7 @@ angular.module('app.services', [ ])
 							method: 'GET',
 							url: service.serverUrl + '/blob/get/' + httpServerData[i].blobID
 						}).success(function(data){
-							
+							data.voting = 0;
 							httpData.push(data);
 						}).error(function(data){
 							console.log("Error loading blob " + httpServerData[i].blobID + " from server. Got following: " + data);
@@ -40,14 +40,14 @@ angular.module('app.services', [ ])
 				console.log("Error loading blob list from server. Got following: " + data);
 			});
 
-/*			$http.get('/js/dummy.json').success(function(data){
+			$http.get('/js/dummy.json').success(function(data){
 				data.entries.forEach(function (elem, index) {
 					httpData.push(elem);
 				})
 			})
 			.error(function(data){
 				console.log("Error loading blobs from file. Got following: " + data);
-			});*/
+			});
 		},
 		addNewBlob: function(newBlob){
 			service.blobs.push(newBlob);

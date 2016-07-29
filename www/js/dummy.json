@@ -1,28 +1,28 @@
 {"entries":
 	[
 		{
-			"heading": "Feeling good",
-			"description": "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
-			"dataURL": "src/test.jpg",
-			"creator": "Doreen",
-			"voting": 1
-		},
-		{
 			"heading": "Sleepy right now",
 			"description": "It is really cool when your alarm clock wears footy pyjamas.",
 			"creator": "Dary",
 			"voting": 1
 		},
 		{
+			"heading": "Feeling good",
+			"description": "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
+			"dataURL": "src/test.jpg",
+			"creator": "Doreen",
+			"voting": 2
+		},
+		{
 			"heading": "Grass is always greener on the other side.",
 			"creator": "Dary",
-			"voting": 2
+			"voting": 0
 		},
 		{
 			"heading": "Yaay, marriage is coming soon.",
 			"creator": "Meli",
 			"dataURL": "src/meli.jpg",
-			"voting": 2
+			"voting": 0
 		}
 	]
 }
