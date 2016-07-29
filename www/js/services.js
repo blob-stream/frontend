@@ -28,8 +28,7 @@ angular.module('app.services', [ ])
 							method: 'GET',
 							url: service.serverUrl + '/blob/get/' + httpServerData[i].blobID
 						}).success(function(data){
-							data.dataURL = "data:image/png;base64," + data.dataURL;
-							console.log(data);
+							
 							httpData.push(data);
 						}).error(function(data){
 							console.log("Error loading blob " + httpServerData[i].blobID + " from server. Got following: " + data);

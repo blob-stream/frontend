@@ -3,10 +3,7 @@
     <h2 style="margin-top:0px; text-align=left;" ng-if="blob.heading">{{blob.heading}}</h2>
     <p ng-if="blob.description">{{blob.description}}</p>
     <div class="item item-image" text-align: center;">
-    	<!-- Use blob.image again, when managed storing images.
-        <img ng-if="blob.image" class="fullscreen-image" ng-src="{{blob.image}}">-->
-
-        <img ng-if="blob.image" class="fullscreen-image" data-ng-src="{{blob.dataURL}}">
+        <img ng-if="blob.dataURL" class="fullscreen-image" ng-src="{{blob.dataURL}}">
     </div>
     <button id="blobStream-button2" class=" button button-calm  button-block icon ion-android-star" ng-click="streamCtrl.addVote(blob)"> Cool stuff</button>
 </div>
