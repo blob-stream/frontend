@@ -1,4 +1,4 @@
-<div class="item item-body" id="blobs-container" ng-repeat="blob in streamCtrl.blobs | orderBy: ['-voting']">
+<div class="item item-body" id="blobs-container" ng-repeat="blob in streamCtrl.blobs | orderBy: -voting">
     <p style="margin-top:0px;color:#000000; text-align:right;">{{blob.creator}} @ Blob Stream</p>
     <h2 style="margin-top:0px; text-align=left;" ng-if="blob.heading">{{blob.heading}}</h2>
     <p ng-if="blob.description">{{blob.description}}</p>

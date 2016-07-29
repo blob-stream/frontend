@@ -21,7 +21,6 @@ angular.module('app.services', [ ])
 				httpServerData = data;
 				console.log(httpServerData);
 
-				//httpHttpServerData = httpServerData; 
 				for (var i = 0; i < httpServerData.length; i++) {
 					if(httpServerData[i].verb = "newBlob"){
 						$http({
@@ -41,14 +40,14 @@ angular.module('app.services', [ ])
 				console.log("Error loading blob list from server. Got following: " + data);
 			});
 
-			$http.get('/js/dummy.json').success(function(data){
+/*			$http.get('/js/dummy.json').success(function(data){
 				data.entries.forEach(function (elem, index) {
 					httpData.push(elem);
 				})
 			})
 			.error(function(data){
 				console.log("Error loading blobs from file. Got following: " + data);
-			});
+			});*/
 		},
 		addNewBlob: function(newBlob){
 			service.blobs.push(newBlob);
@@ -65,7 +64,6 @@ angular.module('app.services', [ ])
 			});*/
 		},
 		addVoteToServer: function(blob){
-
 /*			$http({
 				method: 'POST',
 				url: service.serverUrl + '/blob/vote/' + blob.blobID,
@@ -74,16 +72,19 @@ angular.module('app.services', [ ])
 					"voter": blob.creater,
 					"blobID": blob.blobID //do we really need this?
 				}
-			}).success(function(data){
-				//addVoteToApp(blob.blobID);
-			}).error(function(data){
+			}).success(function(data){*/
+				service.addVoteToApp(blob);
+/*			}).error(function(data){
 				console.log("Error voting up." + data);
 			});*/
 		},
-		addVoteToApp: function(blobID){
-/*			if(blob.myProp){
-			    alert("yes, i have that property");
-			};*/
+		addVoteToApp: function(blob){
+			if(blob.voting){
+			    blob.voting++;
+			} else {
+				blob.voting = 1;
+			}
+			angular.copy(service.blobs);
 		}
 	};
 	return service;
