@@ -3,7 +3,7 @@
 		{
 			"heading": "Feeling good",
 			"description": "This is a wonderful day. The weather is fine and I go swimming tonight. =)",
-			"image": "src/test.jpg",
+			"dataURL": "src/test.jpg",
 			"creator": "Doreen",
 			"voting": 1
 		},
@@ -21,7 +21,7 @@
 		{
 			"heading": "Yaay, marriage is coming soon.",
 			"creator": "Meli",
-			"image": "src/meli.jpg",
+			"dataURL": "src/meli.jpg",
 			"voting": 2
 		}
 	]
