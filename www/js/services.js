@@ -60,16 +60,20 @@ angular.module('app.services', [ ])
 		addNewBlob: function(newBlob){
 			service.blobs.push(newBlob);
 			angular.copy(service.blobs);
+			console.log("New blob in addNewBlob function: ")
+			console.log(newBlob);
+			var httpData = newBlob;
 
-/*			$http({
+			$http({
 				method: 'POST',
 				url: service.serverUrl + '/blob/create',
-				data: { newBlob }
+				data: { blob: httpData }
 			}).success(function(data){
-				angular.copy(data.newBlob, service.blob)
+				angular.copy(data.newBlob, service.blob);
+				console.log("Adding new blob successfully.")
 			}).error(function(data){
 				console.log("Error adding blob." + data);
-			});*/
+			});
 		},
 		addVoteToServer: function(blob){
 /*			$http({

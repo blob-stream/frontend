@@ -28,7 +28,8 @@ angular.module('app.controllers', ['naif.base64'])
 		newblob.voting = 0;
 		newblob.creator = this.userName;
 		newblob.dataURL = "data:" + newblob.dataURL.filetype + ";base64," + newblob.dataURL.base64;
-		console.log(newblob.dataURL);
+		newblob.blobID = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16);
+
 		BlobService.addNewBlob(newblob);
 	}
 })
