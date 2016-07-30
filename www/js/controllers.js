@@ -12,6 +12,7 @@ angular.module('app.controllers', [])
 	this.userName = UserService.getUserName();
 
 	this.addNewBlob = function(newblob){
+		newblob.voting = 0;
 		newblob.creator = this.userName;
 		BlobService.addNewBlob(newblob);
 	}

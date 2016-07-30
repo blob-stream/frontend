@@ -33,9 +33,16 @@ angular.module('app.services', [ ])
 						}).error(function(data){
 							console.log("Error loading blob " + httpServerData[i].blobID + " from server. Got following: " + data);
 						});
-					} //else {
-				//		service.addVoteToApp(httpServerData[i].blobID);
-				//	}
+					} /*else if (httpServerData[i].verb == "addVote"){
+			            for (var i = 0; i < service.blobs.length; i++) {
+			              if(httpServerData[i].blobID == service.blobs[i].blobID){
+			                service.addVoteToApp(service.blobs[i]);
+			              }
+			            }
+			        }*/
+			        else {
+			            console.log("Got unknown verb from server:" + httpServerData[i]);
+			        }
 				}
 			}).error(function(data){
 				console.log("Error loading blob list from server. Got following: " + data);
