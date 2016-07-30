@@ -8,7 +8,8 @@
 	    		<textarea ng-model="newblob.description" placeholder="Your text" rows="5" required></textarea>
 	    	</label>
 		    <label class="item item-input">
-		        <input type="file" name="file" id="file" class="inputfile" />
+<!-- 		        <input type="file" name="file" id="file" class="inputfile" /> -->
+        		<input type="file" ng-model="newblob.dataURL" name="file" base-sixty-four-input required onload="onLoad" maxsize="500" accept="image/*">
 		    </label>
 	        <a ui-sref="menu.blobStream" class=" button button-calm  button-block " ng-click="addCtrl.addNewBlob(newblob)">Send</a>
 	    	<div class="item item-divider"></div>
@@ -19,10 +20,12 @@
 		            <h2 style="margin-top:0px; text-align=left;" ng-if="newblob.heading">{{newblob.heading}}</h2>
 		            <p ng-if="newblob.description">{{newblob.description}}</p>
 		            <div class="item item-image" text-align: center;">
-		                <img ng-if="newblob.image" class="fullscreen-image" ng-src="{{newblob.image}}">
+		                <img class="fullscreen-image" ng-src="{{newblob.base64}}">
 		            </div>
 		        </div>
 	        </div>
         </form>
+<p ng-show="newblob.file"><!-- {{newblob.file.base64}} --></p>
+        
     </ion-content>
 </ion-view>
