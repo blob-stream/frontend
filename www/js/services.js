@@ -22,7 +22,7 @@ angular.module('app.services', [ ])
 				console.log(httpServerData);
 
 				for (var i = 0; i < httpServerData.length; i++) {
-					if(httpServerData[i].verb = "newBlob"){
+					if(httpServerData[i].verb == "newBlob"){
 						$http({
 							method: 'GET',
 							url: service.serverUrl + '/blob/get/' + httpServerData[i].blobID
