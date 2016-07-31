@@ -9,12 +9,15 @@ angular.module('app.services', [ ])
 		blobs : [],
 		serverUrl: "https://mwa.perguth.de",
 		serverData: [],
+		votes: [],
 
 		//load blobs form server and dummy-file. All the data is loaded in blobs[].
 		getBlobs: function(){
 			this.blobs = [];
+			this.votes = [];
 			var httpData = this.blobs;
 			var httpServerData = this.serverData;
+			var httpVotes = this.votes;
 
 			$http({
 				method: 'GET',
@@ -35,15 +38,9 @@ angular.module('app.services', [ ])
 						}).error(function(data){
 							console.log("Error loading blob " + httpServerData[i].blobID + " from server. Got following: " + data);
 						});
-					} /*else if (httpServerData[i].verb == "addVote"){
-			            for (var i = 0; i < service.blobs.length; i++) {
-			              if(httpServerData[i].blobID == service.blobs[i].blobID){
-			                service.addVoteToApp(service.blobs[i]);
-			              }
-			            }
-			        }*/
+					} 
 			        else {
-			            console.log("Got unknown verb from server:" + httpServerData[i]);
+			            httpVotes.push(httpServerData[i]);
 			        }
 				}
 			}).error(function(data){
@@ -81,15 +78,23 @@ angular.module('app.services', [ ])
 				console.log("Error adding blob." + data);
 			});
 		},
+		//not working :(
+		addVotesFromServer: function(){
+			for (var i = 0; i < service.votes.length; i++) {
+				if (service.votes[i].verb == "addVote" && service.votes[i].hasOwnProperty("blobID")){
+					console.log("got until here.")
+		        }
+		    }
+		},
 		//add Votes to server (someone clicked the Cool stuff button)
 		addVoteToServer: function(blob){
 /*			$http({
 				method: 'POST',
-				url: service.serverUrl + '/blob/vote/' + blob.blobID,
+				url: service.serverUrl + '/blob/vote' + blob.blobID,
 				data: { 
 					"verb": "addVote", // auch noch "removeVote"
 					"voter": blob.creater,
-					"blobID": blob.blobID //do we really need this?
+					"blobID": blob.id 
 				}
 			}).success(function(data){*/
 				service.addVoteToApp(blob);

@@ -49,6 +49,7 @@ angular.module('app.controllers', ['naif.base64'])
 	function init() {
 		if($rootScope.showedFirstStart != true) {
 			this.blobs = BlobService.getBlobs();
+			BlobService.addVotesFromServer();
 			$rootScope.showedFirstStart = true;
 		}
 	}
