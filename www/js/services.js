@@ -61,19 +61,21 @@ angular.module('app.services', [ ])
 		},
 		//add new blobs to blobs[] and the server 
 		addNewBlob: function(newBlob){
+			//if blob is added locally it will also get displayed when data was not sent so server. get to be changed later on.
 			service.blobs.push(newBlob);
-			angular.copy(service.blobs);
 			console.log("New blob in addNewBlob function: ")
 			console.log(newBlob);
-			var httpData = newBlob;
 
-			//pushing data to server => not working :)
+			//pushing data to server => now working :)
 			$http({
 				method: 'POST',
 				url: service.serverUrl + '/blob/create',
-				data: { blob: httpData }
+				data: { id: newBlob.blobID, 
+						heading: newBlob.heading,
+						description: newBlob.description,
+						creater: newBlob.creater,
+						dataURL: newBlob.dataURL }
 			}).success(function(data){
-				angular.copy(data.newBlob, service.blob);
 				console.log("Adding new blob successfully.")
 			}).error(function(data){
 				console.log("Error adding blob." + data);
