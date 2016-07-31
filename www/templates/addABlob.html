@@ -8,7 +8,7 @@
 	    		<textarea ng-model="newblob.description" placeholder="Your text" rows="5" required></textarea>
 	    	</label>
 		    <label class="item item-input">
-<!-- 		        <input type="file" name="file" id="file" class="inputfile" /> -->
+		    	<!-- base-sixty-four-input from'naif.base64', to send a base64 image to the server (in service.addNewBlob) -->
         		<input type="file" ng-model="newblob.dataURL" name="file" base-sixty-four-input required onload="onLoad" maxsize="500" accept="image/*">
 		    </label>
 	        <a ui-sref="menu.blobStream" class=" button button-calm  button-block " ng-click="addCtrl.addNewBlob(newblob)">Send</a>
@@ -25,7 +25,5 @@
 		        </div>
 	        </div>
         </form>
-<p ng-show="newblob.file"><!-- {{newblob.file.base64}} --></p>
-        
     </ion-content>
 </ion-view>

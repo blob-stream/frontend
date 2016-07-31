@@ -9,6 +9,8 @@ angular.module('app.services', [ ])
 		blobs : [],
 		serverUrl: "https://mwa.perguth.de",
 		serverData: [],
+
+		//load blobs form server and dummy-file. All the data is loaded in blobs[].
 		getBlobs: function(){
 			this.blobs = [];
 			var httpData = this.blobs;
@@ -57,6 +59,7 @@ angular.module('app.services', [ ])
 				console.log("Error loading blobs from file. Got following: " + data);
 			});
 		},
+		//add new blobs to blobs[] and the server 
 		addNewBlob: function(newBlob){
 			service.blobs.push(newBlob);
 			angular.copy(service.blobs);
@@ -64,6 +67,7 @@ angular.module('app.services', [ ])
 			console.log(newBlob);
 			var httpData = newBlob;
 
+			//pushing data to server => not working :)
 			$http({
 				method: 'POST',
 				url: service.serverUrl + '/blob/create',
@@ -75,6 +79,7 @@ angular.module('app.services', [ ])
 				console.log("Error adding blob." + data);
 			});
 		},
+		//add Votes to server (someone clicked the Cool stuff button)
 		addVoteToServer: function(blob){
 /*			$http({
 				method: 'POST',
@@ -90,6 +95,7 @@ angular.module('app.services', [ ])
 				console.log("Error voting up." + data);
 			});*/
 		},
+		//increase blob.voting. The blobs are ordered by blob.voting, so they will be shown earlier.
 		addVoteToApp: function(blob){
 			if(blob.voting){
 			    blob.voting++;
@@ -102,6 +108,7 @@ angular.module('app.services', [ ])
 	return service;
 }])
 
+//service to get and set the userName
 .service('UserService', [function(){
 	var userName = '';
 

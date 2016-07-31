@@ -1,9 +1,6 @@
 angular.module('app.directives', [])
 
-/*.directive('blankDirective', [function(){
-
-}]);*/
-
+//nicer code, for using <stream-blob></stream-blob>
 .directive('streamBlob', [function(){
 	return{
 		restrict: 'E',

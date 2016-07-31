@@ -24,6 +24,7 @@ angular.module('app.controllers', ['naif.base64'])
 	$scope.files = [];
 	//
 
+	//adding new blob, set voting inital to 0 because of sorting. building up dataURL in the format the server wants it
 	this.addNewBlob = function(newblob){
 		newblob.voting = 0;
 		newblob.creator = this.userName;
@@ -35,6 +36,7 @@ angular.module('app.controllers', ['naif.base64'])
 })
     
 .controller('blobStreamCtrl', function($scope, $ionicLoading, $http, BlobService, $rootScope){
+	//Load the initial blob list only on the first start.
 	function init() {
 		if($rootScope.showedFirstStart != true) {
 			this.blobs = BlobService.getBlobs();
@@ -43,8 +45,10 @@ angular.module('app.controllers', ['naif.base64'])
 	}
 	init();
 
+	//"update" this.blobs for getting self-added blobs, votes
 	this.blobs = BlobService.blobs;
 
+	//add Votes to show blobs earlier
 	this.addVote = function(blob){
 		BlobService.addVoteToServer(blob);
 	}
