@@ -26,12 +26,21 @@ angular.module('app.controllers', ['naif.base64'])
 
 	//adding new blob, set voting inital to 0 because of sorting. building up dataURL in the format the server wants it
 	this.addNewBlob = function(newblob){
-		newblob.voting = 0;
-		newblob.creator = this.userName;
-		newblob.dataURL = "data:" + newblob.dataURL.filetype + ";base64," + newblob.dataURL.base64;
-		newblob.blobID = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16);
-
-		BlobService.addNewBlob(newblob);
+		if(newblob == null){
+			alert("Please insert an image and a description at least.")
+		}
+		else{
+			newblob.voting = 0;
+			newblob.creator = this.userName;
+			newblob.blobID = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 16);
+			newblob.id = newblob.blobID;
+			if(newblob.hasOwnProperty("dataURL")){
+				newblob.dataURL = "data:" + newblob.dataURL.filetype + ";base64," + newblob.dataURL.base64;
+				BlobService.addNewBlob(newblob);
+			} else {
+				alert("Please insert an image. The maximum size is 500kb.");
+			}
+		}
 	}
 })
     
